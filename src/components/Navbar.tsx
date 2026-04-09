@@ -3,6 +3,7 @@ import { Gamepad2, Search, User, LayoutDashboard, Sun, Moon } from "lucide-react
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/ThemeProvider";
+import consoleLogo from "@/assets/console-logo.svg";
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,17 +19,18 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-surface-1/80 backdrop-blur-xl transition-colors duration-300">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center">
           <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 glow-cyan"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex h-9 items-center"
           >
-            <Gamepad2 className="h-5 w-5 text-primary" />
+            <img
+              src={consoleLogo}
+              alt="EROS CONSOLE"
+              className="h-9 w-auto max-h-9 max-w-[min(220px,55vw)] object-contain object-left"
+            />
           </motion.div>
-          <div>
-            <span className="font-heading text-xl font-bold text-gradient-primary">EROS CONSOLE</span>
-          </div>
         </Link>
 
         <div className="flex items-center gap-1">
