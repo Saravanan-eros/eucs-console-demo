@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Rajdhani', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 230 25% 5%;
+    --foreground: 220 15% 90%;
+
+    --card: 230 22% 8%;
+    --card-foreground: 220 15% 90%;
+
+    --popover: 230 22% 8%;
+    --popover-foreground: 220 15% 90%;
+
+    --primary: 170 90% 50%;
+    --primary-foreground: 230 25% 5%;
+
+    --secondary: 230 18% 14%;
+    --secondary-foreground: 220 15% 75%;
+
+    --muted: 230 18% 12%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 280 80% 60%;
+    --accent-foreground: 220 15% 95%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 18% 14%;
+    --input: 230 18% 14%;
+    --ring: 170 90% 50%;
+
+    --radius: 0.75rem;
+
+    --neon-cyan: 170 90% 50%;
+    --neon-magenta: 310 85% 55%;
+    --neon-amber: 38 95% 55%;
+    --neon-green: 145 75% 48%;
+    --neon-red: 0 80% 55%;
+
+    --surface-0: 230 25% 5%;
+    --surface-1: 230 22% 8%;
+    --surface-2: 230 20% 11%;
+    --surface-3: 230 18% 15%;
+
+    --status-live: 145 75% 48%;
+    --status-featured: 38 95% 55%;
+
+    --sidebar-background: 230 22% 8%;
+    --sidebar-foreground: 220 15% 75%;
+    --sidebar-primary: 170 90% 50%;
+    --sidebar-primary-foreground: 230 25% 5%;
+    --sidebar-accent: 230 18% 15%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 230 18% 14%;
+    --sidebar-ring: 170 90% 50%;
+  }
+
+  .light {
+    --background: 220 20% 97%;
+    --foreground: 230 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 10%;
+
+    --primary: 170 85% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 230 18% 35%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 42%;
+
+    --accent: 280 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 170 85% 38%;
+
+    --radius: 0.75rem;
+
+    --neon-cyan: 170 80% 35%;
+    --neon-magenta: 310 70% 48%;
+    --neon-amber: 38 90% 42%;
+    --neon-green: 145 65% 38%;
+    --neon-red: 0 70% 48%;
+
+    --surface-0: 220 20% 97%;
+    --surface-1: 0 0% 100%;
+    --surface-2: 220 15% 95%;
+    --surface-3: 220 15% 90%;
+
+    --status-live: 145 65% 38%;
+    --status-featured: 38 90% 42%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 42%;
+    --sidebar-primary: 170 85% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 230 25% 10%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 170 85% 38%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--surface-0)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--surface-3)); border-radius: 3px; }
+
+@layer utilities {
+  .glow-cyan {
+    box-shadow: 0 0 25px -5px hsl(var(--neon-cyan) / 0.35),
+                0 0 60px -15px hsl(var(--neon-cyan) / 0.15);
+  }
+  .glow-magenta {
+    box-shadow: 0 0 25px -5px hsl(var(--neon-magenta) / 0.35),
+                0 0 60px -15px hsl(var(--neon-magenta) / 0.15);
+  }
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--surface-0)), hsl(var(--surface-1)) 50%, hsl(var(--surface-2)));
+  }
+  .border-glow-cyan {
+    border-color: hsl(var(--neon-cyan) / 0.3);
+  }
+}
